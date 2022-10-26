@@ -16,6 +16,17 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+
+from django.http import HttpResponse
+
+def root(request):
+    return HttpResponse('hello django')
+
+from blog import views
+
+
 urlpatterns = [
+    path('', root),
+    path('blog/', views.index),   #(1 , 2)  1번 주소가 오면 2번 처리를 하겠다. 
     path("admin/", admin.site.urls),
 ]

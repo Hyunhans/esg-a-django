@@ -14,4 +14,4 @@ class Post(models.Model):  #class 의 첫글짜는 항상 대문자
 
     def __str__(self):
         # self.pk : 기본적으로 int 값이다. 
-        return f'[{self.pk}] {self.title}    '
+        return f'[{self.pk}] {self.title}'
