@@ -8,4 +8,10 @@ class Post(models.Model):  #class 의 첫글짜는 항상 대문자
 
     content = models.TextField()
 
-    created_at = models.DateTimeField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    
+
+    def __str__(self):
+        # self.pk : 기본적으로 int 값이다. 
+        return f'[{self.pk}] {self.title}    '
