@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Django</title>
+  </head>
+  <body>
+    <nav>
+      <a href="/blog">Go to blog</a>
+      <a href="/blog/restaurant/new/">레스토랑 후기 쓰기</a>
+      <a href="https://www.naver.com/">네이버 가기</a>
+    </nav>
+    <h1>hello is restaurant</h1>
+
+    {% for rest in res_list %}
+    <h2>
+      <!-- <a href="Post.get_absolute_url() ">   장고 template enginge 에서는 함수 호출할때도 ()문법을 허용하지 않는다. -->
+      <a href="{{ rest.get_absolute_url }}">
+        <!-- <a href="/blog/123/{{ post.pk }}/">  -->
+        {{ rest.name }}
+      </a>
+    </h2>
+    <h4>{{ rest.description }}</h4>
+    <h5>{{ rest.average_score }}</h5>
+
+    <hr />
+    <h3></h3>
+    {% endfor %}
+    <hr />
+  </body>
+</html>
