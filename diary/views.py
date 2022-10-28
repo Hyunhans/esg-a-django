@@ -51,3 +51,15 @@ def memory_edit(request, pk):
     return render(request, "diary/memory_form.html", {
         "form": form,
     })
+
+def memory_delete(request, pk):
+    memory = Memory.objects.get(pk=pk)
+
+    #TODO: delete momory
+    if request.method == 'POST':
+        memory.delete()
+        return redirect("/diary/")  # 삭제해줬으니 어디로 이동시켜야 할거 아니야
+
+    return render(request, "diary/memory_confirm_delete.html", {
+        "memory" : memory,
+})
