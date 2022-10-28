@@ -25,6 +25,10 @@ def memory_new(request):
         if form.is_valid():
             # form.cleaned_data
             memory = form.save()
+
+            # 덕타이핑 관련 / 타입을 써주는 코드 예사
+            # memory : Memory = form.save()
+
             messages.success(request, "메모리를 생성했습니다.")
             # return redirect(f"/diary/{memory.pk}/")
             # return redirect(memory.get_absolute_url())

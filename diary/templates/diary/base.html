@@ -13,23 +13,39 @@
 
 </head>
 <body>
-{#    views에 만든 message 노출하기#}
-    {% if messages %}
-        {% for message in messages %}
-            <li>
-                {{ message.tags }}  {# 아까 했던 success . waring #}
-                {{ message }}
-            </li>
-        {% endfor %}
-    {% endif %}
+{#부트스크랩 헤더 예시#}
+<div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+            <span class="fs-4">Django Diary</span>
+        </a>
 
-    <h1>다이어리</h1>
+        <ul class="nav nav-pills">
+            <li class="nav-item"><a href="/blog/" class="nav-link">BLOG</a></li>
+            <li class="nav-item"><a href="/diary/" class="nav-link">Diary</a></li>
+        </ul>
+    </header>
+</div>
+<div class="container">
+    {% bootstrap_messages %}
+
+{#    views에 만든 message 노출하기  - 이거 안쓰고 부트스트랩꺼로 쓸꺼야 #}
+{#    {% if messages %}#}
+{#        {% for message in messages %}#}
+{#            <li>#}
+{#                {{ message.tags }}  {# 아까 했던 success . waring #}
+{#                {{ message }}#}
+{#            </li>#}
+{#        {% endfor %}#}
+{#    {% endif %}#}
+
 
     {% block content %}{% endblock %}
 
     <hr>
     &copy; 2022. Seokhyeon Company.
+</div>
 
-    {% bootstrap_javascript %}
+{% bootstrap_javascript %}
 </body>
 </html>
