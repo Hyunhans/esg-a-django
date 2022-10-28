@@ -7,14 +7,26 @@
     <title>Django</title>
   </head>
   <body>
+    <nav>
+      <a href="/blog/restaurant">go restaurant</a>
+    </nav>
     <h1>hellllllo worldddd</h1>
 
     {% for post in post_list %}
-    <h3>{{ post.title }}</h3>
+    <h2>
+      <!-- <a href="Post.get_absolute_url() ">   장고 template enginge 에서는 함수 호출할때도 ()문법을 허용하지 않는다. -->
+      <a href="{{ post.get_absolute_url }}">
+        <!-- <a href="/blog/123/{{ post.pk }}/">  -->
+        {{ post.title }}
+      </a>
+    </h2>
     <h4>{{ post.created_at }}</h4>
     <h5>{{ post.updated_at }}</h5>
     <p>{{ post.content }}</p>
-
+    <hr />
+    <h3></h3>
     {% endfor %}
+    <hr />
+    <a href="/blog/new/">새 포스팅 쓰기</a>
   </body>
 </html>

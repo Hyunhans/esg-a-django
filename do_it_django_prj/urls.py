@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include # include : blog urls 를 연결해주기위해
 
 
 from django.http import HttpResponse
@@ -22,11 +22,10 @@ from django.http import HttpResponse
 def root(request):
     return HttpResponse('hello django')
 
-from blog import views
-
 
 urlpatterns = [
     path('', root),
-    path('blog/', views.index),   #(1 , 2)  1번 주소가 오면 2번 처리를 하겠다. 
+    path('blog/', include('blog.urls')), # blog의 urls를 연결 해주기위한 코드
+    path('diary/', include('diary.urls')),
     path("admin/", admin.site.urls),
 ]
