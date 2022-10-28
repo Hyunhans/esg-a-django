@@ -1,13 +1,11 @@
 {#상속받을 선언 해주기 - 제일 위에 써줘야해 #}
 {% extends "diary/base.html" %}
-
+{% load django_bootstrap5 %}  {# 부트스트랩 import 해주고 #}
 {% block content %}
 
     <form action="" method="post" novalidate>
         {% csrf_token %}
-        <table>
-            {{ form.as_table }}
-        </table>
-        <input type="submit" />
+        {% bootstrap_form form %}
+        <input type="submit" class="btn btn-primary"/>
     </form>
 {% endblock %}
