@@ -9,6 +9,16 @@
     <title>memory list</title>
 </head>
 <body>
+{#    views에 만든 message 노출하기#}
+    {% if messages %}
+        {% for message in messages %}
+            <li>
+                {{ message.tags }}  {# 아까 했던 success . waring #}
+                {{ message }}
+            </li>
+        {% endfor %}
+    {% endif %}
+
     <h1>다이어리</h1>
 
     {% block content %}{% endblock %}
