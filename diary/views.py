@@ -25,12 +25,13 @@ def memory_new(request):
         if form.is_valid():
             # form.cleaned_data
             memory = form.save()
+            messages.success(request, "메모리를 생성했습니다.")
             # return redirect(f"/diary/{memory.pk}/")
             # return redirect(memory.get_absolute_url())
             return redirect(memory)
     else:
         form = MemoryForm()  # 실제로 db에 저장한후
-        messages.success(request, "메모리를 생성했습니다.")
+
 
 
     return render(request, "diary/memory_form.html", {
