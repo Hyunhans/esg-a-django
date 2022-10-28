@@ -33,3 +33,21 @@ def memory_new(request):
     return render(request, "diary/memory_form.html", {
         "form": form,
     })
+
+def memory_edit(request, pk):
+    memory = Memory.objects.get(pk=pk)
+
+    if request.method == "POST":
+        form = MemoryForm(request.POST, instance=memory)
+        if form.is_valid():
+            # form.cleaned_data
+            memory = form.save()
+            # return redirect(f"/diary/{memory.pk}/")
+            # return redirect(memory.get_absolute_url())
+            return redirect(memory)
+    else:
+        form = MemoryForm(instance=memory)
+
+    return render(request, "diary/memory_form.html", {
+        "form": form,
+    })
