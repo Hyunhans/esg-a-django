@@ -28,4 +28,6 @@ urlpatterns = [
     path('blog/', include('blog.urls')), # blog의 urls를 연결 해주기위한 코드
     path('diary/', include('diary.urls')),
     path("admin/", admin.site.urls),
+    path("__debug__/", include('debug_toolbar.urls')),
+
 ]
