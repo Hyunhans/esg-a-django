@@ -1,12 +1,9 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+
 <!DOCTYPE html>
-<html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Django</title>
-  </head>
-  <body>
+
     <nav>
       <a href="/blog/restaurant">go restaurant</a>
     </nav>
@@ -28,5 +25,6 @@
     {% endfor %}
     <hr />
     <a href="/blog/new/">새 포스팅 쓰기</a>
-  </body>
-</html>
+
+
+{% endblock %}
